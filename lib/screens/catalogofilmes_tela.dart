@@ -1,8 +1,10 @@
 import 'package:catalogo_filmes_app/core/app_cores.dart';
 import 'package:catalogo_filmes_app/core/app_fontes.dart';
+import 'package:catalogo_filmes_app/provider/filmes.dart';
 import 'package:catalogo_filmes_app/widgets/catalogofilmes_widget.dart';
 import 'package:catalogo_filmes_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CatalogoFilmesTela extends StatefulWidget {
   const CatalogoFilmesTela({Key? key}) : super(key: key);
@@ -44,7 +46,7 @@ class _CatalogoFilmesTelaState extends State<CatalogoFilmesTela> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {      
     return Scaffold(
       backgroundColor: AppCores.CorFundo,
       drawer: DrawerWidget(),

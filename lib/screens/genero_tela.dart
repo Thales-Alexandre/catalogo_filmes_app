@@ -10,8 +10,7 @@ class GeneroTela extends StatelessWidget {
   const GeneroTela({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    Provider.of<Genero>(context).setGenero();
+  Widget build(BuildContext context) {    
 
     return Scaffold(
       backgroundColor: AppCores.CorFundo,

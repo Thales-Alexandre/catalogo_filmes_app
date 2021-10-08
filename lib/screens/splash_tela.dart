@@ -18,14 +18,33 @@ class _SplashTelaState extends State<SplashTela> {
   }
 
   _carregarTelaPrincipal() async {
-    await Future.delayed(Duration(milliseconds: 1500), () {});
+    await Future.delayed(Duration(milliseconds: 2500), () {});
     Navigator.of(context).pushReplacementNamed(AppRotas.HOME, arguments: false);
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: SplashWidget(
-        conteudo: Container(),
+        conteudo: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 100.0,
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(AppImagem.Splash),
+                SizedBox(
+                  height: 30,
+                ),
+                LinearProgressIndicator(
+                  color: Color(0xFF212121),
+                  backgroundColor: Color(0xFF9E9E9E),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

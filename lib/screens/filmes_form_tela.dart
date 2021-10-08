@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:catalogo_filmes_app/core/app_cores.dart';
 import 'package:catalogo_filmes_app/core/app_fontes.dart';
+import 'package:catalogo_filmes_app/core/app_url.dart';
+import 'package:catalogo_filmes_app/model/filmes_model.dart';
+import 'package:catalogo_filmes_app/provider/filmes.dart';
 import 'package:catalogo_filmes_app/widgets/filme_descricao_widget.dart';
 import 'package:catalogo_filmes_app/widgets/filme_sinopse_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,18 +16,27 @@ class FilmesFormTela extends StatefulWidget {
   State<FilmesFormTela> createState() => _FilmesFormTelaState();
 }
 
-const String nomeFilme = 'John Wick';
-
 class _FilmesFormTelaState extends State<FilmesFormTela> {
   int _telaSelecionada = 0;
   late List<Map<String, Object>> _telas;
 
-  @override   
+  @override
+  FilmesModel _filmeSelecionado = FilmesModel(
+    codigo: 0,
+    banner: '',
+    titulo: '',
+    tituloOriginal: '',
+    lancamento: '',
+    classificacao: 0,
+    genero: [],
+    sinopse: '',
+  );
+
   void initState() {
     _telas = [
       {
         'titulo': 'Descrição',
-        'tela': FilmeDescricaoWidget(),
+        'tela': FilmeDescricaoWidget(filme: _filmeSelecionado),
       },
       {
         'titulo': 'Sinopse',
@@ -37,15 +51,28 @@ class _FilmesFormTelaState extends State<FilmesFormTela> {
       _telaSelecionada = indice;
     });
   }
+  /*
+  _dadosFilme(FilmesModel filme) async {
+    setState(() {
+      _filmeSelecionado = filme;
+      print('Primeiro: ${filme.titulo}');
+    });
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
+    FilmesModel filme =
+        ModalRoute.of(context)!.settings.arguments as FilmesModel;
+    //_dadosFilme(filme);
+    _filmeSelecionado = filme;    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppCores.CorPrincipal,
         title: Center(
           child: Text(
-            nomeFilme,
+            filme.titulo,
             style: AppFontes.textoPadraoNegrito,
           ),
         ),
@@ -62,7 +89,7 @@ class _FilmesFormTelaState extends State<FilmesFormTela> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3A2e7RGIXfcTnX7ZCZ6UNIb24vA.jpg',
+                    (AppUrl.urlImagem + filme.banner),
                     fit: BoxFit.fill,
                   ),
                 ),

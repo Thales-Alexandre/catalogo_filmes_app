@@ -13,17 +13,27 @@ class GeneroWidget extends StatefulWidget {
 
 class _GeneroWidgetState extends State<GeneroWidget> {  
   late Genero genero;
+  bool emExecucao = false;
 
   @override
   void dispose() {
-    genero.limpaLista();
+    genero.limpaListaGenero();
     super.dispose();
   }
-  @override
-  Widget build(BuildContext context) {    
-    genero = Provider.of<Genero>(context, listen: false);    
-    List _generos = genero.getGenero;
+  
+  _carregaListaUnica(BuildContext context){
+    if (!emExecucao){
+      Provider.of<Genero>(context).setGenero();
+      genero = Provider.of<Genero>(context, listen: false);    
+      emExecucao = true;
+    }  
+  }
 
+  @override
+  Widget build(BuildContext context) { 
+    _carregaListaUnica(context);               
+    List _generos = genero.getGenero;
+        
     return Container(
       decoration: BoxDecoration(
         color: AppCores.CorFundo,

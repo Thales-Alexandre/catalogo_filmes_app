@@ -32,7 +32,7 @@ class Genero with ChangeNotifier {
     notifyListeners();    
   }
 
-  limpaLista(){
+  limpaListaGenero(){
     _listaGenero.clear();
   }
 }
