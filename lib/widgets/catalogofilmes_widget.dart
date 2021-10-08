@@ -1,3 +1,5 @@
+import 'package:catalogo_filmes_app/utils/app_rotas.dart';
+import 'package:catalogo_filmes_app/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import '../core/core.dart';
 
@@ -11,47 +13,52 @@ class CatalogoFilmesWidget extends StatefulWidget {
 class _CatalogoFilmesWidgetState extends State<CatalogoFilmesWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppCores.CorPrincipal,
-          title: Center(
-            child: Text(
-              'Filmes',
-              style: AppFontes.textoPadraoNegrito,
-            ),
-          ),
-        ),
-        body: Card(                    
-          elevation: 4,
-          margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+    const String bannerFilme =
+        'https://m.media-amazon.com/images/I/4191V0QIFmL._AC_.jpg';
+
+    return Container(
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(AppRotas.FILME_FORM, arguments: false);
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                child: Image.network(
-                  'https://m.media-amazon.com/images/I/4191V0QIFmL._AC_.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,                  
-                ),                  
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    bannerFilme,
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
-              ListTile(
-                title: Text(
-                  'John Wick',
-                  style: AppFontes.textoPadraoNegrito,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(AppRotas.FILME_FORM, arguments: false);
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                subtitle: Text(
-                  'Ação',
-                  style: AppFontes.textoPadrao,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    bannerFilme,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                trailing: const Icon(Icons.star),
-              )
-            ],
-          ),
-        ));
+              ),
+            ),
+          ],
+        ),
+      );
+ 
   }
 }
