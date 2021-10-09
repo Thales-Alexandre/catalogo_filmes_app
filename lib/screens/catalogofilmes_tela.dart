@@ -17,45 +17,15 @@ class _CatalogoFilmesTelaState extends State<CatalogoFilmesTela> {
   Widget _appBarTitulo = Text('Filmes');
   bool buscando = false;
 
-  _controlarBusca(BuildContext ctx, bool busca) {
-    if (!buscando) {
-      return _appBarTitulo = Text('Filmes');
-    } else {
-      return _appBarTitulo = TextField(
-        onChanged: (valor) => () {},
-        style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
-          hintText: 'Buscar...',
-          focusColor: Colors.white,
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          hintStyle: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      );
-    }
-  }
-
   @override
-  Widget build(BuildContext context) {      
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppCores.CorFundo,
       drawer: DrawerWidget(),
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {
-              
-            },
+            onPressed: () {},
             icon: Icon(Icons.search),
           ),
         ],

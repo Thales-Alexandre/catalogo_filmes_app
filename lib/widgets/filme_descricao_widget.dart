@@ -12,8 +12,8 @@ class FilmeDescricaoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Aqui: ${filme.titulo}');
-    String nomeFilmeCompleto = 'John Wick';
+    
+    String nomeFilmeCompleto = 'Titulo Completo Filme';
     const String dataLancamento = '06-10-2021';
     const double classificacao = 4.9;
     const String generos = 'Ação, Drama';

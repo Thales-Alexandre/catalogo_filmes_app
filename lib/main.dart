@@ -39,6 +39,7 @@ class CatalogoFilmesApp extends StatelessWidget {
           AppRotas.FAVORITOS: (ctx) => FavoritosTela(),
           AppRotas.FILME_FORM: (ctx) => FilmesFormTela(),
           AppRotas.GENERO: (ctx) => GeneroTela(),
+          AppRotas.LOGIN: (ctx) => LoginTela(),
         },
       ),
     );

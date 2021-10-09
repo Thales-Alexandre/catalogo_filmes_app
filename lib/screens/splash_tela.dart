@@ -19,7 +19,7 @@ class _SplashTelaState extends State<SplashTela> {
 
   _carregarTelaPrincipal() async {
     await Future.delayed(Duration(milliseconds: 2500), () {});
-    Navigator.of(context).pushReplacementNamed(AppRotas.HOME, arguments: false);
+    Navigator.of(context).pushReplacementNamed(AppRotas.LOGIN, arguments: false);
   }
 
   Widget build(BuildContext context) {

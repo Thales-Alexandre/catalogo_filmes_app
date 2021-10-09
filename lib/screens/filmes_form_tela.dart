@@ -51,21 +51,19 @@ class _FilmesFormTelaState extends State<FilmesFormTela> {
       _telaSelecionada = indice;
     });
   }
-  /*
+  
   _dadosFilme(FilmesModel filme) async {
     setState(() {
-      _filmeSelecionado = filme;
-      print('Primeiro: ${filme.titulo}');
+      _filmeSelecionado = filme;      
     });
   }
-  */
+  
 
   @override
   Widget build(BuildContext context) {
     FilmesModel filme =
         ModalRoute.of(context)!.settings.arguments as FilmesModel;
-    //_dadosFilme(filme);
-    _filmeSelecionado = filme;    
+    _dadosFilme(filme);   
 
     return Scaffold(
       appBar: AppBar(

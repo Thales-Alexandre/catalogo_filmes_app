@@ -1,6 +1,7 @@
 import 'package:catalogo_filmes_app/core/app_cores.dart';
 import 'package:catalogo_filmes_app/core/app_fontes.dart';
 import 'package:catalogo_filmes_app/core/app_imagem.dart';
+import 'package:catalogo_filmes_app/utils/app_rotas.dart';
 import 'package:flutter/material.dart';
 
 class LoginTela extends StatelessWidget {
@@ -9,10 +10,10 @@ class LoginTela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(        
+      body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,          
+          width: MediaQuery.of(context).size.width,
           color: AppCores.CorPrincipal,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +38,8 @@ class LoginTela extends StatelessWidget {
                       color: AppCores.CorFundo,
                     ),
                     labelText: "Usuário",
-                    labelStyle: TextStyle(color: AppCores.CorFundo, fontSize: 18),
+                    labelStyle:
+                        TextStyle(color: AppCores.CorFundo, fontSize: 18),
                     fillColor: Colors.white,
                     enabledBorder: OutlineInputBorder(
                       borderSide:
@@ -56,8 +58,8 @@ class LoginTela extends StatelessWidget {
               ),
               Container(
                 height: 60,
-                width: MediaQuery.of(context).size.width * 0.7,                
-                child: TextFormField(                  
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: TextFormField(
                   obscureText: true,
                   style: TextStyle(color: AppCores.CorFundo),
                   decoration: InputDecoration(
@@ -66,7 +68,8 @@ class LoginTela extends StatelessWidget {
                       color: AppCores.CorFundo,
                     ),
                     labelText: "Senha",
-                    labelStyle: TextStyle(color: AppCores.CorFundo, fontSize: 18),
+                    labelStyle:
+                        TextStyle(color: AppCores.CorFundo, fontSize: 18),
                     fillColor: Colors.white,
                     enabledBorder: OutlineInputBorder(
                       borderSide:
@@ -90,7 +93,8 @@ class LoginTela extends StatelessWidget {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(Colors.grey.shade600)),
-                  onPressed: () => () {},
+                  onPressed: () => (Navigator.of(context)
+                      .pushReplacementNamed(AppRotas.HOME, arguments: false)),
                   child: Text(
                     'E N T R A R',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
